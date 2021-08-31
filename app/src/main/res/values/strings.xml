@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">CrazeRemote</string>
+
+
+        <string-array name="connection_type">
+            <item>Local</item>
+            <item>Ngrok</item>
+        </string-array>
+
+</resources>
