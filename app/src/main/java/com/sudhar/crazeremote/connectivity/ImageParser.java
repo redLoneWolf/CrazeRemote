@@ -117,6 +117,7 @@ public class ImageParser {
             Log.d(TAG, "evaluateCam: "+gotPreamble);
         } else {
             Log.d(TAG, "onNewData: intruder");
+
             byteArrayOutputStream.reset();
             return;
         }
@@ -129,7 +130,7 @@ public class ImageParser {
 
         if (gotSize && byteArrayOutputStream.size() >= DATA_OFFSET + size) {
 
-            byte[] data = getSliceOfArray(byteArrayOutputStream.toByteArray(),DATA_OFFSET,byteArrayOutputStream.size());
+            byte[] data = getSliceOfArray(byteArrayOutputStream.toByteArray(),DATA_OFFSET,DATA_OFFSET + size);
             Bitmap bitmap = BitmapFactory.decodeByteArray( data, 0, data.length);
             imageListener.onImageReady(bitmap);
             Log.d(TAG, "evaluateCam: Got image");
